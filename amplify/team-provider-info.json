@@ -1,0 +1,15 @@
+{
+  "staging": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-countdowns-staging-182728-authRole",
+      "UnauthRoleArn": "arn:aws:iam::997577541842:role/amplify-countdowns-staging-182728-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::997577541842:role/amplify-countdowns-staging-182728-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-countdowns-staging-182728-deployment",
+      "UnauthRoleName": "amplify-countdowns-staging-182728-unauthRole",
+      "StackName": "amplify-countdowns-staging-182728",
+      "StackId": "arn:aws:cloudformation:us-east-1:997577541842:stack/amplify-countdowns-staging-182728/7cacbd50-e68f-11ec-bbe9-0e4d85c69abf",
+      "AmplifyAppId": "d2u1181skpp4tl"
+    }
+  }
+}
