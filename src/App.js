@@ -1,9 +1,11 @@
 import { DataStore, Predicates } from '@aws-amplify/datastore';
+import { withAuthenticator } from '@aws-amplify/ui-react';
+import '@aws-amplify/ui-react/styles.css';
 import { useEffect, useState } from 'react';
 import './App.css';
 import { Countdown } from './models';
 
-function App() {
+function App({signOut, user}) {
 
   const [countdowns, setCountdowns] = useState([]);
 
@@ -21,12 +23,13 @@ function App() {
 
   return (
     <div className="App">
+      <p>Welcome, {user.attributes.name}</p>
       <h1>Edit countdowns</h1>
       <form onSubmit={async (e) => {
         e.preventDefault();
-        
-        if (newCountdownName)
-        {
+
+        if (newCountdownName) {
+
           await DataStore.save(
             new Countdown({
               "end_date": newCountdownEndDate,
@@ -52,13 +55,15 @@ function App() {
         ? <p>No countdowns</p>
         : <>
           <p>{countdowns.length} countdowns</p>
-          <ul style={{listStyle: 'none', paddingInlineStart: 0}}>
+          <ul style={{ listStyle: 'none', paddingInlineStart: 0 }}>
             {countdowns.map(countdown => <li key={countdown.id}>{countdown.name} @ {countdown.end_date}</li>)}
           </ul>
         </>
       }
+
+      <button type="button" onClick={signOut}>Sign Out</button>
     </div>
   );
 }
 
-export default App;
+export default withAuthenticator(App);
